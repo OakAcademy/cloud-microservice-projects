@@ -1,0 +1,17 @@
+groups:
+  - name: my-rules
+    rules: 
+    - alert: citizenServiceIsDown
+      expr: up{job="citizen-service"}==0
+      for: 5s
+      labels:
+        severity: page
+      annotations:
+        summary: Citizen Service Is Down 
+    - alert: ninServiceIsDown
+      expr: up{job="nin-service"}==0
+      for: 5s
+      labels:
+        severity: page
+      annotations:
+        summary: National Identification Number Service Is Down

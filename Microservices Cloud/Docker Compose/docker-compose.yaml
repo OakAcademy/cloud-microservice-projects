@@ -1,0 +1,12 @@
+version: "3.3"
+services:
+  system-service:
+    image: system-info
+    ports:
+      - "8080:8080"
+      - "8443:8443"
+  user-service:
+    image: user-info
+    ports:
+      - "9090:9090"
+      - "9091:9091"
