@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en"
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/Layout"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+layout:decorator="AdminLayout">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Product</title>
+</head>
+<body>
+<div layout:fragment="content" >
+
+<div class="w-50 container">
+<h1 class="mt-4">Add Product</h1>
+<form class="mt-3" th:object="${product}" method="post" th:action="@{/admin/saveProduct}">
+<div form-group>
+
+<label for="ExampleInputName1">Product Name</label>
+<input type="text" class="form-control" placeholder="Enter Product Name" th:field="*{name}"/>
+
+</div>
+<br/>
+
+<div form-group>
+
+<label for="ExampleInputName1">Product Price($)</label>
+<input type="text" class="form-control" placeholder="Enter Product Price" th:field="*{price}"/>
+
+</div>
+<br/>
+<div form-group>
+
+<label for="ExampleInputName1">Product Stock</label>
+<input type="text" class="form-control" placeholder="Enter Product Stock" th:field="*{stock}"/>
+
+</div>
+<br/>
+<button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+
+
+
+</div>
+
+
+
+</div>
+</body>
+</html>

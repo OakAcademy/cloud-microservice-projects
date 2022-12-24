@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/Layout"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+layout:decorator="EmployeeLayout">
+<head>
+<meta charset="ISO-8859-1">
+<title>Create Bill</title>
+</head>
+<body>
+<div layout:decorator="content">
+<div class="w-50 container">
+<h1 class="mt-4">Creating Bill</h1>
+<form class="mt-3" th:action="@{/employee/saveBill}" method="post">
+<input type="hidden" th:field="*{id}"/>
+<input type="hidden" th:field="*{total_price}"/>
+<div class="form-group">
+<label for="example" >Customer Name: </label>
+ <input type="text" class="form-control" placeholder="Please enter customer name" th:field="{customer_name}"/>
+</div>
+<div class="form-group">
+<label for="example" >Customer Surname: </label>
+ <input type="text" class="form-control" placeholder="Please enter customer surname" th:field="{customer_surname}"/>
+</div>
+<div class="form-group">
+<label for="example" >Total Price: </label>
+ <input type="text" class="form-control" disabled="disabled" th:field="{total_price}"/>
+</div>
+<br/>
+<button type="submit" class="btn btn-primary">Save</button>
+
+
+</form>
+
+</div>
+
+
+</div>
+</body>
+</html>

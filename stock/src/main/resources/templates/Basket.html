@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en"
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/Layout"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+layout:decorator="EmployeeLayout">
+<head>
+<meta charset="ISO-8859-1">
+<title>Basket</title>
+</head>
+<body>
+<div layout:fragment="content" class="conatiner mt-3" style="width:70%">
+<div  th:if="${#lists.size(soldproducts)>0}" >
+<div th:each="soldProduct:${soldproducts}">
+<div th:each="product:${products}">
+<div class="card" th:if="${product.id==soldProduct.product_id}">
+<div class="card-body">
+
+<h5 class="card-title" th:text=" Product Name: '+${product.name}+'"></h5>
+<p class="card-text" th:text="Product piece: '${soldProduct.piece}'"></p>
+<p class="card-text" th:text="Product per Price '${product.price}'"></p>
+
+</div>
+</div>
+</div>
+
+</div>
+<br/>
+<a th:href="@{/emploee/createBill}" class="btn btn-primary">Create Bill</a>
+<a class="btn btn-danger" th:href="@{/emploee/cancelTheBill}">Cancel Sale</a>
+
+
+</div>
+<div th:unless="${#lists.size(soldProducts)>0}">
+Your Basket is Empty
+</div>
+
+
+
+
+
+
+
+
+</div>
+</body>
+</html>

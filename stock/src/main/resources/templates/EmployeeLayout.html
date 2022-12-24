@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en"
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/Layout"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | Blank Page</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" th:href="@{/assets/css/all.min.css}">
+  <!-- Theme style -->
+  <link rel="stylesheet" th:href="@{/assets/css/adminlte.min.css}">
+</head>
+<body class="hold-transition sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-dark navbar-dark">
+    <!-- Left navbar links -->
+    <a class="navbar-brand ps-3">Employee Panel</a>
+    
+   
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Navbar Search -->
+     
+
+      <!-- Messages Dropdown Menu -->
+     
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><i class="fas fa-user fa-fw"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end" arialabelledby="dropdown">
+      <li><a class="dropdown-item" th:href="@{logout}">Logout</a></li>
+      
+      
+      
+      
+      </ul>
+     
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+   
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class=""></i>
+              <p>
+                Product
+                <i class=""></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../../index.html" class="nav-link">
+                  <i class=""></i>
+                  <p>Product List</p>
+                </a>
+              </li>
+             
+               <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class=""></i>
+              <p>
+                Sale
+                <i class=""></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a th:href="@{/employee/Basket}" class="nav-link">
+                  <i class=""></i>
+                  <p>Basket</p>
+                </a>
+              </li>
+             
+            </ul>
+         
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+   <main>
+   <div class="content-wrapper" layout:fragment="content">
+   
+   </div>
+   </main>
+   
+  </div>
+  <!-- /.content-wrapper -->
+
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 3.2.0
+    </div>
+    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script th:src="@{/assets/js/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script th:src="@{/assets/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script th:src="@{/assets/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script th:src="@{/assets/js/demo.js"></script>
+</body>
+</html>

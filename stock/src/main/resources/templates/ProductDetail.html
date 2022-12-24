@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/Layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	layout:decorator="AdminLayout">
+<head>
+<meta charset="ISO-8859-1">
+<title>Product Details</title>
+</head>
+<body>
+	<div layout:fragment="content">
+
+		<div class="w-50 container mt-2">
+
+			<div class="card">
+
+				<div class="card-header"></div>
+				<div class="card-body">
+					<h5 class="card-title">Product Details</h5>
+					<div class="card-body">
+						<h5 class="card-title" th:text="${product.name}"></h5>
+						<p class="card-text"
+							th:text="Product Price: '+${product.price}+'  $(pcs price)"></p>
+						<p class="card-text" th:text="Stock Amount: '+${product.stock}+'"
+							id="productStock"></p>
+						<form class="mt-3" th:action="@{/employee/AddBasket}"
+							method="post">
+							<div class="form-group">
+
+								<label for="example">Selected Quantity</label> <input
+									type="text" class="form-control"
+									placeholder="Please Enter the sell Amount" name="piece"
+									id="orderstock" />
+								<h6 id="stockAlert" style="color: blue">You cannot sell
+									any product more than your stock</h6>
+							</div>
+							<input type="hidden" name="productId" th:value="*{product.id}" />
+							<br />
+							<button type="submit" class="btn btn-primary" id="submitbutton">Add
+								Basket</button>
+
+						</form>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+	
+	<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"
+			integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g=="
+			crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+			<script type="text/javascript">
+			$('#stockAlert').hide();
+			$('#orderstock').keyup(function(){
+				var orderstock=$('#orderstock').val();
+				var productstock="[(${product.stock})]";
+				var remainingstock=productstock-orderstock;
+				if(remainingstock<0)
+					{
+					$('#stockAlert').show();
+					$('#submitbutton').attr('disabled','disabled');
+					}
+				else
+					{
+					$('#stockAlert').hide();
+					$('#submitbutton').removeAttr('disabled');
+					}
+				
+				
+				
+			});
+			
+			
+			
+			
+			</script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</body>
+</html>
