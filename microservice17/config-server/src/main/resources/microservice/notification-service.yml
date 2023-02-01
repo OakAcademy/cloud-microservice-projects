@@ -1,0 +1,41 @@
+server:
+  port: 7203
+
+
+spring:
+  application:
+    name: notification-service
+  rabbitmq:
+    username: microservice
+    password: microservice
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: msqueue
+  zipkin:
+    base-url: http://localhost:9411/
+  boot:
+    admin:
+      client:
+        url: http://localhost:7208
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: postgresql
+  datasource:
+    url: jdbc:postgresql://localhost:5432/microservice
+    username: postgres
+    password: microservice
+eureka:
+  client:
+    instance:
+      hostname:localhost
+    serviceUrl:
+      defaultZone: http://localhost:7200/eureka/

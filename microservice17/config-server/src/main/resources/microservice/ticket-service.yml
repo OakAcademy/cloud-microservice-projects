@@ -1,0 +1,43 @@
+server:
+  port: 7202
+
+spring:
+  application:
+    name: ticket-service
+  datasource:
+    url: jdbc:mysql://localhost:3307/microserviceapp
+    username: root
+    password: microservice-app
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
+  rabbitmq:
+    username: microservice
+    password: microservice
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination: msqueue
+  zipkin:
+    base-url: http://localhost:9411/
+
+  boot:
+    admin:
+      client:
+        url: http://localhost:7208
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+eureka:
+  client:
+    instance:
+      hostname: localhost
+    serviceUrl:
+      defaultZone: http://localhost:7200/eureka/

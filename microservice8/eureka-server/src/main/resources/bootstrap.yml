@@ -1,0 +1,12 @@
+server:
+  port: 7200
+spring:
+  profiles:
+    active: ${PROFILE:DEV}
+  application:
+    name: eureka-server
+
+  cloud:
+    config:
+      profile: native
+      uri: http://localhost:8888
